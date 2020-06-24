@@ -1,0 +1,9 @@
+#SampleID	BarcodeSequence	LinkerPrimerSequence	Group	Description
+SAA			thin	WMY1
+SAB			fat	ZGQ1
+SAD			thin	WMY1
+SAE			fat	ZGQ1
+SBA			thin	WMY1
+SBB			fat	ZGQ1
+SBD			thin	WMY1
+SBE			fat	ZGQ1

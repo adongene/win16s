@@ -1,0 +1,7 @@
+pick_otus:threads 4
+pick_otus:enable_rev_strand_match True
+pick_otus:otu_picking_method usearch61_ref
+assign_taxonomy:assignment_method rdp
+align_seqs:alignment_method muscle 
+align_seqs:pairwise_alignment_method muscle 
+alpha_diversity:metrics PD_whole_tree,observed_species,shannon,chao1,simpson
