@@ -1,14 +1,86 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Win16S pipeline"><title>Win16S | LIGENE</title></head>
-<body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Win16S：A simple pipeline to analyze 16S rRNA amplicon sequencing data on the Windows</h1><p class="description">Windows下16S rRNA基因扩增子测序数据分析的简易流程</p></div>
-<h1 class="post-title">本流程相关安装软件与数据：</h1>
-<div class="post-content">
-<h3 id="2-流程安装说明"><a href="#1-流程安装说明" class="headerlink" title="1. 流程安装说明"></a>1. 流程安装说明：<a href="http://www.ligene.cn/win16s/win16s_install.txt" target="_blank" rel="noopener">win16s_install.txt</a></h3>
-<h3 id="3-流程命令说明"><a href="#1-流程命令说明" class="headerlink" title="3. 流程命令说明"></a>2. 流程使用命令说明：<a href="http://www.ligene.cn/win16s/win16s_pipeline.txt" target="_blank" rel="noopener">win16s_pipeline.txt</a></h3>
-<h3 id="4-流程命令说明"><a href="#4-流程测试数据" class="headerlink" title="4. 流程测试数据"></a>3. 流程测试数据：<a href="http://www.ligene.cn/win16s/win16s_data.zip" target="_blank" rel="noopener">win16s_data.zip</a></h3>
-</div>
-<div> 如果你需要一步安装本流程，请下载此shell脚本,并在WSL-Ubuntu bash下运行安装：<a href="http://www.ligene.cn/win16s/win16s_install.sh" title="win16s_install.sh" target="_blank">win16s_install.sh</a>
-<p>
-你也可以手动下载本流程相关的安装软件包：<a href="http://www.ligene.cn/win16s/win16s.tar.gz" target="_blank" rel="noopener">win16s.tar.gz</a></div>
-<p>
-<div id="footer">Copyright © 2018 <a href="mailto:youdng@hotmail.com" rel="nofollow">Adong</a>. Powered by GitHub <a href="https://adongene.github.com" rel="nofollow">.</a></div>
-</body></html>
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="description" content="Win16S pipeline">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Win16S | LIGENE</title>
+    <style>
+        html,body { padding:0; margin:0;}
+        .body_container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            color: #545658;
+        }
+        h2 { margin:30px 0;}
+        h3 {
+            margin: 25px 0;
+            text-indent: 2em;
+            color: #545658;
+        }
+        .site-name {
+            width: 100%;
+            height: 100px;
+            padding: 0;
+            background: #dbdbdb;
+            margin: 0 auto;
+            color: #545658;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .description {
+            height: 100px;
+            line-height:100px;
+            overflow:hidden;
+            font-size:30px;
+            font-weight:bold;
+        }
+        .hidden {
+            display: none;
+        }
+        .info { line-height:30px; margin-top:50px;}
+        #footer {
+            width: 100%;
+            height:100px;
+            line-height:100px;
+            background: #dbdbdb;
+            text-align: center;
+            position: fixed;
+            left: 0;
+            bottom: 10px;
+        }
+        a {
+            color: #1C8A43;
+        }
+        .icon {
+            text-indent:1em;
+            color: #545658
+        ;}
+    </style>
+</head>
+<body>
+    <div class="site-name"><h1 class="hidden">Win16S：A simple pipeline to analyze 16S rRNA amplicon sequencing data on the Windows</h1><div class="description" title="Windows下16S rRNA基因扩增子测序数据分析的简易流程">Windows下16S rRNA基因扩增子测序数据分析的简易流程</div></div>
+    <div class="body_container">
+        <div id="header">
+            <h2 class="post-title">本流程相关安装软件与数据：</h2>
+            <div class="post-content">
+                <h3 id="2-流程安装说明"><a href="#1-流程安装说明" class="headerlink" title="1. 流程安装说明"></a>1. 流程安装说明：<a href="http://www.ligene.cn/win16s/win16s_install.txt" target="_blank" rel="noopener">win16s_install.txt</a><a href="http://www.ligene.cn/win16s/win16s_install.txt" class="icon" target="_blank"><i class="fa fa-clipboard"></i></a></h3>
+                <h3 id="3-流程命令说明"><a href="#2-流程命令说明" class="headerlink" title="2. 流程命令说明"></a>2. 流程使用命令说明：<a href="http://www.ligene.cn/win16s/win16s_pipeline.txt" target="_blank" rel="noopener">win16s_pipeline.txt</a><a href="http://www.ligene.cn/win16s/win16s_pipeline.txt" class="icon" target="_blank"><i class="fa fa-clipboard"></i></a></h3>
+                <h3 id="4-流程命令说明"><a href="#3-流程测试数据" class="headerlink" title="3. 流程测试数据"></a>3. 流程测试数据：<a href="http://www.ligene.cn/win16s/win16s_data.zip" target="_blank" rel="noopener">win16s_data.zip</a><a href="http://www.ligene.cn/win16s/win16s_data.zip" class="icon" target="_blank"><i class="fa fa-download"></i></a></h3>
+            </div>
+            <div class="info">
+                如果你需要一步安装本流程，请下载此shell脚本,并在WSL-Ubuntu bash下运行安装：<a href="http://www.ligene.cn/win16s/win16s_install.sh" title="win16s_install.sh" target="_blank">win16s_install.sh</a><a href="http://www.ligene.cn/win16s/win16s_install.sh" class="icon" target="_blank"><i class="fa fa-clipboard"></i></a>
+                <p>
+                    你也可以手动下载本流程相关的安装软件包：<a href="http://www.ligene.cn/win16s/win16s.tar.gz" target="_blank" rel="noopener">win16s.tar.gz</a><a href="http://www.ligene.cn/win16s/win16s.tar.gz" class="icon" target="_blank"><i class="fa fa-download"></i></a>
+            </div>
+            <p>如果你有什么问题或建议，请跟我Email联系: <img src="http://blog.ligene.cn/about/gmail.png" border=0 /> </p>
+                <div id="footer">Copyright © 2018 <a href="http://blog.ligene.cn" rel="nofollow">LIGENE</a>. Powered by Amazon <a href="https://aws.amazon.com" rel="nofollow"> AWS</a>.</div>
+        </div>
+    </div>
+</body>
+</html>
