@@ -1,0 +1,83 @@
+本分析流程需要安装QIIME、VSEARCH等软件，测试Linux系统为Ubuntu 16.04LTS。
+
+## 更改Ubuntu更新源
+#1.修改前先备份
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak 
+#2.复制sources.list到windows文件目录
+sudo cp /etc/apt/sources.list /mnt/c/
+#3.然后在windows下用记事本打开sources.list文件，先删除所有内容, 并复制以下源，粘贴到sources.list
+# deb cdrom:[Ubuntu 16.04 LTS _Xenial Xerus_ - Release amd64 (20160420.1)]/ xenial main restricted  
+deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted  
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted multiverse universe #Added by software-properties  
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted  
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted multiverse universe #Added by software-properties  
+deb http://mirrors.aliyun.com/ubuntu/ xenial universe  
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe  
+deb http://mirrors.aliyun.com/ubuntu/ xenial multiverse  
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates multiverse  
+deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse  
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse #Added by software-properties  
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted  
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted multiverse universe #Added by software-properties  
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe  
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse  
+deb http://archive.canonical.com/ubuntu xenial partner  
+deb-src http://archive.canonical.com/ubuntu xenial partner  
+#4. 复制sources.list到linux文件目录
+sudo cp /mnt/c/sources.list /etc/apt/
+#4. 最后执行源更新
+sudo apt-get update  
+
+==============================================================
+## 安装Linux常用工具
+sudo apt-get install build-essential	#Linux基础开发工具
+sudo apt-get install python-minimal	python-dev python-tk #安装python2.7
+#如果python不是python2.7，请设置python2为默认版本：alias python=’/usr/bin/python2’(可把此命令写入~/.bashrc文件中)。
+sudo apt-get install python-pip  #可用pip安装python包
+sudo apt-get install r-base -y #Install R
+sudo apt-get install default-jre -y #Install Java Run Environment (JRE)
+==============================================================
+## 安装QIIME
+sudo pip install --upgrade pip -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
+sudo pip install numpy==1.10.0 -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
+sudo pip install matplotlib==1.5.3 -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
+$sudo pip install scipy==1.0.0 -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
+$sudo pip install ipython==5.5.0 -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
+sudo pip install pandas==0.21.1 -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
+sudo pip install biom-format==2.1.4 -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
+sudo pip install qiime -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
+#测序QIIME安装是否成功
+print_qiime_config.py -t
+==================================================================
+## 安装VSEARCH
+git clone https://github.com/torognes/vsearch.git
+cd vsearch
+./autogen.sh
+./configure
+make
+sudo make install  #默认安装在/usr/local/bin/目录
+sudo cp /usr/local/bin/vsearch /usr/local/bin/usearch61 #让qiime的参数usearch61使用vsearch程序
+=======================================================
+## 安装ClustalW或Muscle
+sudo apt-get install clustalw
+sudo apt-get install muscle
+
+## 安装RDP classifier
+#下载RDP Classifier v2.2(只有此版本能用)，下载网址：https://sourceforge.net/projects/rdp-classifier/files/rdp-classifier/
+#解压到windows系统的D盘根目录，并复制到Ubuntu系统的用户home目录：
+mv /mnt/d/rdp_classifier_2.2/  ~/
+echo "export RDP_JAR_PATH=~/rdp_classifier_2.2/rdp_classifier-2.2.jar" >> ~/.bashrc
+source ~/.bashrc
+
+## 安装Xming可运行X-windows图形程序
+#下载安装包Xming-setup.exe（最新版本6.9.0.31），Xming官网：http://sourceforge.net/projects/xming/
+echo "export DISPLAY=:0.0" >> ~/.bashrc #设置X图形显示端口
+source ~/.bashrc
+
+#======== 安 装 问 题 ===========
+#安装qiime时停止不动，可试一下或反复运行几次这条命令:
+sudo pip install qiime -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com  --extra-index-url http://mirrors.aliyun.com/pypi/simple
+
+
+#安装VSEARCH遇到问题：./autogen.sh:autoreconf: Not found
+sudo apt-get install autoconf 
